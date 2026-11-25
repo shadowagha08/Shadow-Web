@@ -1,0 +1,340 @@
+[
+  {
+    "name": "زیندەوەر",
+    "teachers": [
+      {
+        "name": "مەیسەر تەیمور اسماعیل",
+        "parts": [
+          {
+            "name": "بەندی 1",
+            "cards": [
+              {
+                "name": "کەرتی 1",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/FjOL_Mupoyw?si\u003daIro5stIaSooBBZO"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 2",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/gc0W1m_ejKo?si\u003dn8-wbvZgFcVqQ_Sj"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 3",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/dSp6PlPrmvw?si\u003dywYosHCFLnJHJ4qS"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "بەندی 2",
+            "cards": [
+              {
+                "name": "کەرتی 1",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/37IBM7GWPp4?si\u003dFvz88ghA1s6I09lC"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/XPeaKWzgWys?si\u003deFOYjgAO6B4Z8cL3"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 2",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/x7j_-q0firA?si\u003dVX67rjlG8irDaEVh"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/nu3kNBbV7Aw?si\u003d95c_SnkV0Kj-1dB7"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 3",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/p3h4k_H1QuI?si\u003d0_L_p_GeFV3ha6pV"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "بەندی 3",
+            "cards": [
+              {
+                "name": "کەرتی 1",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/Dti2Y3ch4uM?si\u003dHGc-M9pPaZBaxTem"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 2",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/iPJzxH5ZR7o?si\u003dYeFT6kxWXS0-CY2q"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/KcJaa0ah3g8?si\u003deR1gPGN3sYh21S78"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 3",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/ZIvrZOZSE6U?si\u003dArAcOtdTu-ry5VcB"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "بەندی 4",
+            "cards": [
+              {
+                "name": "کەرتی 1",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 2",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 3",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "بەندی 5",
+            "cards": [
+              {
+                "name": "کەرتی 1",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 2",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 3",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "بەندی 6",
+            "cards": [
+              {
+                "name": "کەرتی 1",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 2",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 3",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "بەندی 7",
+            "cards": [
+              {
+                "name": "کەرتی 1",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 2",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 3",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "بەندی 8",
+            "cards": [
+              {
+                "name": "کەرتی 1",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 2",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              },
+              {
+                "name": "کەرتی 3",
+                "lessons": [
+                  {
+                    "name": "Lesson 1",
+                    "url": "https://www.youtube.com/embed/"
+                  },
+                  {
+                    "name": "Lesson 2",
+                    "url": "https://www.youtube.com/embed/VIDEO_ID2"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

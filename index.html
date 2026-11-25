@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070b14">
+<title>سیستەمی وانەکان</title>
+<style>
+@font-face{font-family:MyFont;src:url('Makka.ttf');font-display:swap}
+:root{--ink:#070b14;--tx:#eef3ff;--mu:#93a0bd;--r:22px}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'MyFont','Makka','Noto Naskh Arabic',Tahoma,sans-serif;-webkit-tap-highlight-color:transparent}
+body{min-height:100vh;background:var(--ink);color:var(--tx);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* background */
+.aur{position:fixed;inset:0;z-index:-2;overflow:hidden;background:radial-gradient(120% 80% at 50% 0,#10213a,var(--ink) 70%)}
+.aur i{position:absolute;width:70vmax;height:70vmax;border-radius:50%;filter:blur(60px);opacity:.36;mix-blend-mode:screen;will-change:transform;animation:drift 22s ease-in-out infinite alternate}
+.aur i:nth-child(1){background:#1db954;top:-32vmax;right:-22vmax}
+.aur i:nth-child(2){background:#5b4bff;bottom:-36vmax;left:-26vmax;animation-duration:28s;animation-delay:-8s}
+.aur i:nth-child(3){background:#00b8d9;top:32%;left:18%;width:40vmax;height:40vmax;opacity:.2;animation-duration:34s;animation-delay:-14s}
+#bg{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.wrap{max-width:460px;margin:auto;min-height:100vh;padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+
+/* header */
+.hd{position:sticky;top:0;z-index:50;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 14px;background:rgba(7,11,20,.72);-webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.07);border-radius:0 0 26px 26px;box-shadow:0 10px 30px rgba(0,0,0,.45);animation:down .8s cubic-bezier(.2,.8,.2,1) both}
+.row{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;gap:10px}
+#title{text-align:center;font-size:19px;line-height:1.6;overflow-wrap:anywhere;background:linear-gradient(90deg,#fff 20%,#8ff0b8 50%,#fff 80%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:tin .6s cubic-bezier(.2,.8,.2,1) both,shine 5s linear infinite}
+.bk,.lg{width:44px;height:44px;border-radius:50%;display:grid;place-items:center}
+.bk svg,.lg svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.bk{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.07);color:var(--tx);cursor:pointer;transition:transform .4s cubic-bezier(.3,1.6,.4,1),opacity .3s,background .3s}
+.bk:hover{background:rgba(255,255,255,.14);transform:translateX(3px)}
+.bk:active{transform:scale(.88)}
+.bk.hide{opacity:0;transform:scale(.4) rotate(90deg);pointer-events:none}
+.lg{color:#04210f;background:linear-gradient(135deg,#1db954,#00d4aa);animation:pulse 2.6s infinite}
+.steps{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.steps i{height:4px;width:22px;border-radius:4px;background:rgba(255,255,255,.12);transition:all .6s cubic-bezier(.2,.8,.2,1)}
+.steps i.on{width:40px;background:hsl(var(--h) 85% 58%);box-shadow:0 0 12px hsl(var(--h) 85% 58%/.7)}
+
+/* cards */
+.grid{display:flex;flex-direction:column;gap:14px;padding:14px 16px 0}
+.card{--a:hsl(var(--h) 85% 62%);position:relative;display:flex;align-items:center;gap:14px;width:100%;padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r);background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.025));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--tx);text-align:start;cursor:pointer;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.45);animation:cin .65s cubic-bezier(.2,.8,.2,1) calc(var(--i)*70ms) backwards;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s,background .4s}
+.card::before{content:'';position:absolute;inset:0;background:radial-gradient(200px circle at var(--mx,50%) var(--my,50%),hsl(var(--h) 90% 60%/.25),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card::after{content:'';position:absolute;inset-block:16px;inset-inline-start:0;width:3px;border-radius:3px;background:var(--a);box-shadow:0 0 14px var(--a)}
+.card:hover{transform:translateY(-3px);border-color:hsl(var(--h) 80% 60%/.5);box-shadow:0 22px 46px rgba(0,0,0,.55)}
+.card:hover::before{opacity:1}
+.card:active{transform:scale(.975)}
+.card:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+.ic{flex:none;width:48px;height:48px;border-radius:16px;display:grid;place-items:center;color:var(--a);background:hsl(var(--h) 80% 55%/.14);box-shadow:inset 0 0 0 1px hsl(var(--h) 80% 60%/.3);font-size:18px;font-weight:700;transition:transform .5s cubic-bezier(.3,1.6,.4,1)}
+.ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card:hover .ic{transform:rotate(-8deg) scale(1.1)}
+.tx{flex:1;min-width:0}
+.tx b{display:block;font-size:17px;line-height:1.6;overflow-wrap:anywhere}
+.tx small{display:flex;align-items:center;gap:8px;margin-top:4px;font-size:12.5px;color:var(--mu)}
+.tag{font-style:normal;padding:1px 10px;border-radius:99px;color:var(--a);background:hsl(var(--h) 80% 55%/.14)}
+.ar{flex:none;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;color:var(--mu);transition:all .35s}
+.card:hover .ar{color:var(--a);transform:translateX(-5px)}
+.rp{position:absolute;width:20px;height:20px;margin:-10px;border-radius:50%;background:hsl(var(--h) 90% 70%/.45);pointer-events:none;animation:rip .7s ease-out forwards}
+
+/* lessons */
+.eq,.t2{display:none}
+.card.on{border-color:var(--a);background:linear-gradient(160deg,hsl(var(--h) 80% 50%/.3),rgba(255,255,255,.03))}
+.on .nm,.on .t1{display:none}
+.on .eq{display:flex;gap:3px;align-items:flex-end;height:20px}
+.on .t2{display:inline}
+.eq b{width:4px;border-radius:2px;background:currentColor;animation:eq .9s ease-in-out infinite alternate}
+.eq b:nth-child(2){animation-delay:-.35s}
+.eq b:nth-child(3){animation-delay:-.7s}
+#playerArea{display:none;padding:6px 16px 4px;scroll-margin-top:96px}
+#playerArea.show{display:block;animation:pop .8s cubic-bezier(.2,.9,.3,1.2) both}
+.fr{position:relative;padding:2px;border-radius:26px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 60px hsl(340 90% 60%/.18)}
+.fr::before{content:'';position:absolute;inset:-60%;background:conic-gradient(#1db954,#00b8d9,#7c5cff,#ff4d8d,#ffb02e,#1db954);animation:spin 5s linear infinite}
+.in{position:relative;border-radius:24px;overflow:hidden;background:#000;aspect-ratio:16/9}
+iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ld,.sk{background:linear-gradient(110deg,#111a2c 30%,#1e2c48 50%,#111a2c 70%) 100% 0/200% 100%;animation:sh 1.3s linear infinite}
+.ld{position:absolute;inset:0;display:grid;place-items:center}
+.ld::after{content:'';width:34px;height:34px;border-radius:50%;border:3px solid rgba(255,255,255,.2);border-top-color:#1db954;animation:spin .8s linear infinite}
+.ld.off{display:none}
+.sk{height:82px;border-radius:var(--r);animation:sh 1.3s linear infinite,cin .6s calc(var(--i)*70ms) backwards}
+
+/* states */
+.err{text-align:center;padding:46px 22px;color:var(--mu);line-height:2.1;animation:cin .6s backwards}
+.err svg{width:60px;height:60px;margin-bottom:8px;fill:none;stroke:#ff7a90;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;animation:wob 2.4s ease-in-out infinite}
+.rt{margin-top:14px;padding:11px 26px;border:0;border-radius:99px;background:#1db954;color:#04210f;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 8px 24px rgba(29,185,84,.35);transition:transform .3s cubic-bezier(.3,1.6,.4,1)}
+.rt:hover{transform:scale(1.07)}
+.rt:active{transform:scale(.94)}
+
+@keyframes drift{to{transform:translate(10vmax,8vmax) rotate(40deg) scale(1.15)}}
+@keyframes down{from{opacity:0;transform:translateY(-100%)}}
+@keyframes tin{from{opacity:0;transform:translateY(8px);filter:blur(6px)}}
+@keyframes shine{to{background-position:-200% 0}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(29,185,84,.55)}70%,100%{box-shadow:0 0 0 14px transparent}}
+@keyframes cin{from{opacity:0;transform:translateX(calc(var(--d,-1)*28px)) scale(.95)}}
+@keyframes rip{to{transform:scale(18);opacity:0}}
+@keyframes eq{from{height:20%}to{height:100%}}
+@keyframes pop{from{opacity:0;transform:translateY(-14px) scale(.92)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sh{to{background-position:0 0}}
+@keyframes wob{50%{transform:rotate(-8deg) translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="aur"><i></i><i></i><i></i></div>
+<canvas id="bg"></canvas>
+<div class="wrap">
+  <header class="hd">
+    <div class="row">
+      <button id="back" class="bk hide" onclick="goBack()" aria-label="گەڕانەوە"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      <h3 id="title">بارکردن…</h3>
+      <div class="lg"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5zM6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg></div>
+    </div>
+    <div class="steps" id="steps"></div>
+  </header>
+  <div id="playerArea"><div class="fr"><div class="in">
+    <iframe id="player" title="وانە" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe>
+    <div class="ld" id="ld"></div>
+  </div></div></div>
+  <main id="content" class="grid">
+    <div class="sk" style="--i:0"></div><div class="sk" style="--i:1"></div><div class="sk" style="--i:2"></div><div class="sk" style="--i:3"></div>
+  </main>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),T=$('#title'),C=$('#content'),P=$('#playerArea'),F=$('#player'),LD=$('#ld'),B=$('#back'),S=$('#steps');
+const n=x=>String(x).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+const ic=p=>`<svg viewBox="0 0 24 24">${p}</svg>`;
+// one colour per depth: subject → teacher → part → section → lesson
+const L=[
+ {k:'بابەت',h:152,s:ic('<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11"/>')},
+ {k:'ماموستا',h:190,s:ic('<path d="M2 9l10-5 10 5-10 5zM6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/>')},
+ {k:'بەند',h:262,s:ic('<path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/>')},
+ {k:'کەرت',h:38,s:ic('<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>')},
+ {k:'وانە',h:340}
+];
+const K=[s=>s.teachers,t=>t.parts,p=>p.cards,c=>c.lessons];
+let data=[],stack=[];
+S.innerHTML=L.map(l=>`<i style="--h:${l.h}"></i>`).join('');
+const vib=()=>navigator.vibrate&&navigator.vibrate(8);
+
+function load(){
+  fetch('./data.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{data=j;view(0)}).catch(e=>{
+    console.log(e);T.textContent='داتاکە بار نەبوو';
+    C.innerHTML=`<div class="err"><svg viewBox="0 0 24 24"><path d="M12 3L2 20h20zM12 10v4M12 17.5v.01"/></svg><p>تکایە ئینتەرنێتەکەت بپشکنە و دووبارە هەوڵ بدەوە</p><button class="rt" onclick="load()">دووبارە هەوڵ بدەوە</button></div>`;
+  });
+}
+
+function mk(lv,it,i){
+  const l=L[lv],k=lv<4?(K[lv](it)||[]):null,b=document.createElement('button');
+  b.className='card';b.style.cssText=`--h:${l.h};--i:${i}`;
+  b.innerHTML=`<span class="ic">${lv<4?l.s:`<span class="nm">${n(i+1)}</span><span class="eq"><b></b><b></b><b></b></span>`}</span>`+
+  `<span class="tx"><b class="tl"></b><small><i class="tag">${lv<4?l.k:`<span class="t1">${l.k}</span><span class="t2">ئێستا لێدەدرێت</span>`}</i>${k?`<span>${n(k.length)} ${L[lv+1].k}</span>`:''}</small></span>`+
+  `<svg class="ar" viewBox="0 0 24 24">${lv<4?'<path d="M15 6l-6 6 6 6"/>':'<path d="M9 6.5v11l9-5.5z" fill="currentColor"/>'}</svg>`;
+  b.querySelector('.tl').textContent=it.name||'';
+  return b;
+}
+
+function view(lv,node,back){
+  const list=lv?(K[lv-1](node)||[]):data;
+  T.textContent=lv?node.name:'بابەتێک هەڵبژێرە';
+  T.style.animation='none';T.offsetWidth;T.style.animation='';
+  B.classList.toggle('hide',!stack.length);
+  [...S.children].forEach((e,i)=>e.classList.toggle('on',i<=lv));
+  C.innerHTML='';C.style.setProperty('--d',back?1:-1);
+  P.classList.toggle('show',lv==4);
+  if(lv<4)F.src='about:blank';
+  if(!list.length)C.innerHTML='<div class="err"><p>هیچ شتێک لێرە نییە</p></div>';
+  list.forEach((it,i)=>{
+    const b=mk(lv,it,i);
+    b.onclick=()=>{vib();if(lv<4){stack.push([lv,node]);view(lv+1,it)}else play(it,b)};
+    C.appendChild(b);
+  });
+  if(lv==4&&list.length)play(list[0],C.firstChild,1);
+  scrollTo({top:0,behavior:'smooth'});
+}
+
+function play(l,el,silent){
+  if(!el.classList.contains('on')){
+    C.querySelectorAll('.on').forEach(e=>e.classList.remove('on'));
+    el.classList.add('on');LD.classList.remove('off');F.src=l.url;
+    setTimeout(()=>LD.classList.add('off'),9e3);
+  }
+  if(!silent)P.scrollIntoView({behavior:'smooth'});
+}
+F.onload=()=>LD.classList.add('off');
+
+function goBack(){
+  if(stack.length){vib();const[l,nd]=stack.pop();view(l,nd,1)}
+}
+
+// spotlight + ripple on cards
+const pos=(c,e)=>{const r=c.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
+C.addEventListener('pointermove',e=>{
+  const c=e.target.closest('.card');if(!c)return;
+  const[x,y]=pos(c,e);c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');
+});
+C.addEventListener('pointerdown',e=>{
+  const c=e.target.closest('.card');if(!c)return;
+  const[x,y]=pos(c,e),s=document.createElement('span');
+  s.className='rp';s.style.left=x+'px';s.style.top=y+'px';
+  c.appendChild(s);s.onanimationend=()=>s.remove();
+});
+
+// drifting star dust
+const cv=$('#bg'),g=cv.getContext('2d'),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let W,H,ps=[];
+function rs(){
+  W=cv.width=innerWidth;H=cv.height=innerHeight;
+  ps=Array.from({length:Math.min(70,W/12|0)},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.4,v:Math.random()*.25+.05,p:Math.random()*6}));
+}
+function dr(t){
+  g.clearRect(0,0,W,H);g.fillStyle='#bfe8ff';
+  for(const p of ps){
+    p.y-=p.v;if(p.y<-4)p.y=H+4;
+    g.globalAlpha=.25+.4*Math.sin(t/900+p.p);
+    g.beginPath();g.arc(p.x,p.y,p.r,0,7);g.fill();
+  }
+  if(!RM)requestAnimationFrame(dr);
+}
+addEventListener('resize',rs);rs();dr(0);
+
+load();
+</script>
+</body>
+</html>
